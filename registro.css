@@ -1,0 +1,14 @@
+@font-face{
+	font-family: forque;
+	src: url(/fonts/Forque.ttf);
+}
+@font-face{
+	font-family: fragmentcore;
+	src: url(/fonts/Fragmentcore.otf);
+}
+.font1{
+	font-family: forque;
+}
+.font2{
+	font-family: fragmentcore;
+}

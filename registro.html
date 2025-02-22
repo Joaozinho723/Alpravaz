@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-enter {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        .fade-enter-active {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .fade-exit {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .fade-exit-active {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="relative w-full h-screen flex">
+        <!-- Left Section with Image -->
+        <div class="w-1/2 h-full bg-cover bg-center bg-black">
+            <div class="m-0 p-0 flex justify-center text-white">
+                <h1 class="text-white text-5xl font-bold translate-y-52 font2">Alpravaz<br></h1>
+            </div>
+            <div class="text-white m-0 p-0 flex justify-center">
+                <h1 class="translate-y-56 font1">cooperativa de credito</h1>
+            </div>
+        </div>
+        
+        <!-- Right Section with Forms -->
+        <div class="w-1/2 h-full flex items-center justify-center">
+            <div class="relative w-full h-full flex">
+                <!-- Sign In -->
+                <div id="signIn" class="w-full h-full flex flex-col justify-center items-center bg-white transition-all duration-500 fade-enter-active absolute">
+                    <h2 class="text-3xl font-semibold">Sign In</h2>
+                    <input type="text" placeholder="Email" class="w-3/4 p-3 mt-4 border rounded-md">
+                    <input type="password" placeholder="Password" class="w-3/4 p-3 mt-4 border rounded-md">
+                    <button class="w-3/4 mt-4 p-3 bg-black hover:bg-blue-900 text-white rounded-md">Login</button>
+                    <p class="mt-4">Don't have an account? <button id="showSignUp" class="text-blue-500">Sign Up</button></p>
+                </div>
+                
+                <!-- Sign Up -->
+                <div id="signUp" class="w-full h-full flex flex-col justify-center items-center bg-white transition-all duration-500 fade-enter hidden absolute">
+                    <h2 class="text-3xl font-semibold">Sign Up</h2>
+                    <input type="text" placeholder="Name" class="w-3/4 p-3 mt-4 border rounded-md">
+                    <input type="text" placeholder="Email" class="w-3/4 p-3 mt-4 border rounded-md">
+                    <input type="password" placeholder="Password" class="w-3/4 p-3 mt-4 border rounded-md">
+                    <button class="w-3/4 mt-4 p-3 bg-black hover:bg-blue-900 text-white rounded-md">Register</button>
+                    <p class="mt-4">Already have an account? <button id="showSignIn" class="text-blue-500">Sign In</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("showSignUp").addEventListener("click", function() {
+            let signIn = document.getElementById("signIn");
+            let signUp = document.getElementById("signUp");
+            
+            signIn.classList.add("fade-exit-active");
+            setTimeout(() => {
+                signIn.classList.add("hidden");
+                signIn.classList.remove("fade-enter-active", "fade-exit-active");
+                signUp.classList.remove("hidden");
+                signUp.classList.add("fade-enter-active");
+            }, 500);
+        });
+        
+        document.getElementById("showSignIn").addEventListener("click", function() {
+            let signIn = document.getElementById("signIn");
+            let signUp = document.getElementById("signUp");
+            
+            signUp.classList.add("fade-exit-active");
+            setTimeout(() => {
+                signUp.classList.add("hidden");
+                signUp.classList.remove("fade-enter-active", "fade-exit-active");
+                signIn.classList.remove("hidden");
+                signIn.classList.add("fade-enter-active");
+            }, 500);
+        });
+    </script>
+</body>
+</html>
