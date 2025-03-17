@@ -1,7 +1,3 @@
-document.getElementById("btn").addEventListener("click", function() {
-    document.getElementById("menu").classList.toggle("hidden");
-});
-
 document.addEventListener('DOMContentLoaded', function(){
     const aumentaFonteBotao = document.getElementById('diminuir-fonte');
     const diminuiFonteBotao = document.getElementById('aumentar-fonte');
